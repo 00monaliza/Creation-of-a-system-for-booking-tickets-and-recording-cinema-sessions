@@ -1,0 +1,19 @@
+cinema-booking/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── rizat/
+│   │   │           └── cinema/
+│   │   │               ├── controller/     # REST-контроллеры
+│   │   │               ├── service/        # Бизнес-логика
+│   │   │               ├── repository/     # Репозитории для работы с БД
+│   │   │               ├── model/          # Сущности (POJO)
+│   │   │               ├── config/         # Конфигурация (Spring, Security)
+│   │   │               └── exception/      # Обработка ошибок
+│   │   ├── resources/
+│   │   │   ├── application.properties      # Конфигурация приложения
+│   │   │   └── static/                    # Статические файлы (если нужен фронт)
+│   ├── test/                              # Тесты (JUnit, Mockito)
+├── pom.xml                                # Файл Maven
+└── README.md                              # Описание проекта
