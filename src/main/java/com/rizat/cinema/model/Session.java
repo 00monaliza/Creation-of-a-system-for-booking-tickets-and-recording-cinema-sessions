@@ -1,14 +1,22 @@
-package com.rizat.cinema.repository;
+package com.rizat.cinema.model;
 
-import com.rizat.cinema.model.Session;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import jakarta.persistence.*;
+import lombok.Data;
 
-import java.time.LocalDateTime;
-import java.util.List;
+@Entity
+@Table(name = "users")
+@Data
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-@Repository
-public interface SessionRepository extends JpaRepository<Session, Long> {
-    // Поиск сеансов по фильму и времени
-    List<Session> findByFilmIdAndStartTimeAfter(Long filmId, LocalDateTime startTime);
+    @Column(nullable = false, unique = true)
+    private String username;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private String email;
 }

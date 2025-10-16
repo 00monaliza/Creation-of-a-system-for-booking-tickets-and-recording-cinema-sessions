@@ -1,13 +1,31 @@
-package com.rizat.cinema.repository;
+package com.rizat.cinema.model;
 
-import com.rizat.cinema.model.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import jakarta.persistence.*;
+import lombok.Data;
 
-import java.util.Optional;
+import java.time.LocalDateTime;
 
-@Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    // Поиск пользователя по имени
-    Optional<User> findByUsername(String username);
+@Entity
+@Table(name = "sessions")
+@Data
+public class Session {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "film_id", nullable = false)
+    private Film film;
+
+    @Column(nullable = false)
+    private LocalDateTime startTime;
+
+    @Column(nullable = false)
+    private String hall; // Название зала, например, "Hall 1"
+
+    @Column(nullable = false)
+    private int totalSeats; // Общее количество мест
+
+    @Column(nullable = false)
+    private int availableSeats; // Доступные места
 }

@@ -1,16 +1,24 @@
-package com.rizat.cinema.repository;
+package com.rizat.cinema.model;
 
-import com.rizat.cinema.model.Booking;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import jakarta.persistence.*;
+import lombok.Data;
 
-import java.util.List;
+@Entity
+@Table(name = "bookings")
+@Data
+public class Booking {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-@Repository
-public interface BookingRepository extends JpaRepository<Booking, Long> {
-    // Поиск бронирований по сеансу
-    List<Booking> findBySessionId(Long sessionId);
+    @ManyToOne
+    @JoinColumn(name = "session_id", nullable = false)
+    private Session session;
 
-    // Поиск бронирований по пользователю
-    List<Booking> findByUserId(Long userId);
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @Column(nullable = false)
+    private int seatNumber; // Номер забронированного места
 }
