@@ -5,15 +5,19 @@ cinema-booking/
 │   │   │   └── com/
 │   │   │       └── rizat/
 │   │   │           └── cinema/
-│   │   │               ├── controller/     # REST-контроллеры
-│   │   │               ├── service/        # Бизнес-логика
-│   │   │               ├── repository/     # Репозитории для работы с БД
-│   │   │               ├── model/          # Сущности (POJO)
-│   │   │               ├── config/         # Конфигурация (Spring, Security)
-│   │   │               └── exception/      # Обработка ошибок
+│   │   │               ├── model/
+│   │   │               │   ├── Film.java
+│   │   │               │   ├── Session.java
+│   │   │               │   ├── Booking.java
+│   │   │               │   └── User.java
+│   │   │               ├── repository/
+│   │   │               │   ├── FilmRepository.java
+│   │   │               │   ├── SessionRepository.java
+│   │   │               │   ├── BookingRepository.java
+│   │   │               │   └── UserRepository.java
 │   │   ├── resources/
-│   │   │   ├── application.properties      # Конфигурация приложения
-│   │   │   └── static/                    # Статические файлы (если нужен фронт)
-│   ├── test/                              # Тесты (JUnit, Mockito)
-├── pom.xml                                # Файл Maven
-└── README.md                              # Описание проекта
+│   │   │   ├── application.properties
+│   ├── test/
+├── pom.xml
+├── .gitignore
+└── README.md
